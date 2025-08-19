@@ -1,18 +1,25 @@
 package object;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Student implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -852596251445264986L;
+    //private static final long serialVersionUID = 1L; //固定版本号
     private String name;
     private int age;
+    private transient String address;
 
 
     public Student() {
     }
 
-    public Student(String name, int age) {
+    public Student(String name, int age, String address) {
         this.name = name;
         this.age = age;
+        this.address = address;
     }
 
     /**
@@ -47,7 +54,24 @@ public class Student implements Serializable {
         this.age = age;
     }
 
+    /**
+     * 获取
+     * @return address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * 设置
+     * @param address
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String toString() {
-        return "Student{name = " + name + ", age = " + age + "}";
+        return "Student{ name = " + name + ", age = " + age + ", address = " + address + "}";
     }
 }
+
